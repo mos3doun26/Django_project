@@ -1,6 +1,7 @@
 {% extends "blog/base.html" %}
 {% block content %}
   {% for post in posts %}
+  <h2 class="mb-4">Posts by {{post.author.username}} ({{page_obj.paginator.count}})</h2>
   <article class="media content-section">
     <img class="rounded-circle article-img" src="{{ post.author.profile.image.url }}">
       <div class="media-body">
