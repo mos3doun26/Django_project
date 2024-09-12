@@ -5,7 +5,7 @@
     <img class="rounded-circle article-img" src="{{ post.author.profile.image.url }}">
       <div class="media-body">
         <div class="article-metadata">
-          <a class="mr-2" href="{% url 'user-posts' post.author %}">{{ post.author }}</a>
+          <a class="mr-2" href="#">{{ post.author }}</a>
           <small class="text-muted">{{ post.date_posted|date:"F d,Y"}}</small>
         </div>
         <h2><a class="article-title" href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h2>
@@ -18,7 +18,7 @@
 
     {% if page_obj.has_previous %}
       <a class="btn btn-info mb-4" href="?page=1">First</a>
-      <a class="btn btn-info mb-4" href="?page={{page_obj.previous_page_number}}">Previous</a>
+      <a class="btn btn-info mb-4" href="?page={{page_obj.previous}}">Previous</a>
     {% endif %}
 
     {% for num in page_obj.paginator.page_range %}
@@ -32,8 +32,8 @@
     {% endfor %}
 
     {% if page_obj.has_next %}
-      <a class="btn btn-info mb-4" href="?page={{page_obj.next_page_number}}">Next</a>
-      <a class="btn btn-info mb-4" href="?page={{page_obj.paginator.num_pages}}">Last</a>
+      <a class="btn btn-info mb-4" href="?page={{page_obj.paginator.next_page_num}}">Next</a>
+      <a class="btn btn-info mb-4" href="?page={{page_obj.previous_page_num}}">Last</a>
     {% endif %}
 
   {% endif %}
