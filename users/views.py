@@ -4,6 +4,7 @@ from .forms import UserResigterForm, UserUpdateForm, ProfileUpdateForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from .models import Profile
+from django.contrib.auth import logout
 
 def register(request):
     if request.method == "POST":
@@ -36,3 +37,7 @@ def profile(request):
     }
 
     return render(request, "users/profile.html", context)
+
+def costume_logout(request):
+    logout(request)
+    return redirect("login")
